@@ -1,0 +1,20 @@
+0.04	6 February 2004
+	Changed name to Log::WarnDie to prevent confusion Tony Charles found
+	himself in.
+
+	Added support for logging any output to STDERR as well.  Added logic
+	so that errors and warnings (which usually also print to STDERR) are
+	not logged twice.  Also suggested by Tony Charles.
+
+	Added documentation about which logging levels are being used.
+
+0.03	5 February 2004
+	Argh.  Mixup in parameters for "skip" in test-suite.  Adapted the
+	test-suite.  No further changes.
+
+0.02	4 February 2004
+	Changed name to Log::Dispatch::WarnDie because of possible confusion
+	with Log::Log4Perl module.  Spotted by Mike Chilli.
+
+0.01	2 February 2004
+	First version of Log::ForPerl
