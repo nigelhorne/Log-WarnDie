@@ -9,15 +9,15 @@ BEGIN {				# Magic Perl CORE pragma
 my $tests;
 BEGIN {
     eval { require Log::Dispatch::Buffer };
-    $tests = $@ ? 1 : 21;
+    $tests = $@ ? 1 : 24;
 } #BEGIN
 
 use Test::More tests => 2 + $tests;
 use strict;
 use warnings;
 
-use_ok( 'Log::Dispatch::WarnDie' );
-can_ok( 'Log::Dispatch::WarnDie',qw(
+use_ok( 'Log::WarnDie' );
+can_ok( 'Log::WarnDie',qw(
  dispatcher
  import
  unimport
@@ -35,7 +35,7 @@ SKIP : {
     $dispatcher->add( $channel );
     is( $dispatcher->output( 'default' ),$channel,'Check if channel activated');
 
-    Log::Dispatch::WarnDie->dispatcher( $dispatcher );
+    Log::WarnDie->dispatcher( $dispatcher );
 
     my $warn = "This warning will be displayed\n";
     warn $warn;
@@ -62,20 +62,27 @@ SKIP : {
     eval {die $die};
     $message = $channel->flush;
     is( scalar( @{$message} ),1,"Check if number of messages ok" );
-    is( $message->[0]->{'level'},'error',"Check type of message" );
+    is( $message->[0]->{'level'},'critical',"Check type of message" );
     is( $message->[0]->{'message'},$die,"Check message contents" );
 
     my $croak = "This croak will be displayed\n";
     eval {Carp::croak $croak};
     $message = $channel->flush;
     is( scalar( @{$message} ),1,"Check if number of messages ok" );
-    is( $message->[0]->{'level'},'error',"Check type of message" );
+    is( $message->[0]->{'level'},'critical',"Check type of message" );
     like( $message->[0]->{'message'},qr#^$croak#,"Check message contents" );
 
     my $confess = "This confess will be displayed\n";
     eval {Carp::confess $confess};
     $message = $channel->flush;
     is( scalar( @{$message} ),1,"Check if number of messages ok" );
-    is( $message->[0]->{'level'},'error',"Check type of message" );
+    is( $message->[0]->{'level'},'critical',"Check type of message" );
     like( $message->[0]->{'message'},qr#^$confess#,"Check message contents" );
+
+    my $stderr = "This stderr will be displayed\n";
+    print STDERR $stderr;
+    $message = $channel->flush;
+    is( scalar( @{$message} ),1,"Check if number of messages ok" );
+    is( $message->[0]->{'level'},'error',"Check type of message" );
+    like( $message->[0]->{'message'},qr#^$stderr#,"Check message contents" );
 } #SKIP

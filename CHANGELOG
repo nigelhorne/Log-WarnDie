@@ -1,3 +1,8 @@
+0.05	8 September 2007
+	Fixes to let the test-suite run ok.  Added test for STDERR.  Thanks
+	to David Cantrell for finally spotting that the test-suite was quite
+	faulty.
+
 0.04	6 February 2004
 	Changed name to Log::WarnDie to prevent confusion Tony Charles found
 	himself in.

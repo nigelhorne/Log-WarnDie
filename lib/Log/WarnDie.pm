@@ -3,7 +3,7 @@ package Log::WarnDie;
 # Make sure we have version info for this module
 # Be strict from now on
 
-$VERSION = '0.04';
+$VERSION = '0.05';
 use strict;
 
 # Make sure we have the modules that we need
@@ -215,6 +215,10 @@ Log::WarnDie - Log standard Perl warnings and errors on a log handler
  warn "This is a warning"; # no longer dispatched
  die "Sorry it didn't work out"; # no longer dispatched
 
+=head1 VERSION
+
+This documentation describes version 0.05.
+
 =head1 DESCRIPTION
 
 The "Log::WarnDie" module offers a logging alternative for standard
@@ -292,7 +296,7 @@ Please report bugs to <perlbugs@dijkmat.nl>.
 
 =head1 COPYRIGHT
 
-Copyright (c) 2004 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
+Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
 reserved.  This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
