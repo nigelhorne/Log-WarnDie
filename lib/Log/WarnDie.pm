@@ -223,7 +223,7 @@ This documentation describes version 0.05.
 
 The "Log::WarnDie" module offers a logging alternative for standard
 Perl core functions.  This allows you to use the features of e.g.
-L<Log::Dispatch> or L<Log::Log4Perl> B<without> having to make extensive
+L<Log::Dispatch> or L<Log::Log4perl> B<without> having to make extensive
 changes to your source code.
 
 When loaded, it installs a __WARN__ and __DIE__ handler and intercepts any
@@ -270,9 +270,11 @@ the real use of this module only comes into view when such a module B<is>
 installed.  Please note that for testing this module, you will need the
 L<Log::Dispatch::Buffer> module to also be available.
 
-An alternate logger may be L<Log::Log4Perl>, although this has not been tested
+An alternate logger may be L<Log::Log4perl>, although this has not been tested
 by the author.  Any object that provides a C<warning>, C<error> and C<critical>
 method, will operate with this module.
+Log4perl does not the message 'critical', so it will not work.
+A wishlist request has been sent (RT121065).
 
 =head2 eval
 
