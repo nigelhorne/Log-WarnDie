@@ -138,6 +138,7 @@ BEGIN {
     $SIG{__DIE__} = sub {
         if ($DISPATCHER) {
             $LAST = \@_;
+	    print STDERR ref($DISPATCHER);
             $DISPATCHER->critical( @_ );
         }
         $DIE ? $DIE->( @_ ) : CORE::die( @_ );

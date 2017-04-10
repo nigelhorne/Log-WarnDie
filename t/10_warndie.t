@@ -61,23 +61,23 @@ SKIP : {
     my $die = "This die will be displayed\n";
     eval {die $die};
     $message = $channel->flush;
-    is( scalar( @{$message} ),1,"Check if number of messages ok" );
-    is( $message->[0]->{'level'},'critical',"Check type of message" );
-    is( $message->[0]->{'message'},$die,"Check message contents" );
+    is( scalar( @{$message} ),2,"Check if number of messages ok" );
+    is( $message->[1]->{'level'},'critical',"Check type of message" );
+    is( $message->[1]->{'message'},$die, "This die will be displayed" );
 
     my $croak = "This croak will be displayed\n";
     eval {Carp::croak $croak};
     $message = $channel->flush;
-    is( scalar( @{$message} ),1,"Check if number of messages ok" );
-    is( $message->[0]->{'level'},'critical',"Check type of message" );
-    like( $message->[0]->{'message'},qr#^$croak#,"Check message contents" );
+    is( scalar( @{$message} ),2,"Check if number of messages ok" );
+    is( $message->[1]->{'level'},'critical',"Check type of message" );
+    like( $message->[1]->{'message'},qr#^$croak#,"Check message contents" );
 
     my $confess = "This confess will be displayed\n";
     eval {Carp::confess $confess};
     $message = $channel->flush;
-    is( scalar( @{$message} ),1,"Check if number of messages ok" );
-    is( $message->[0]->{'level'},'critical',"Check type of message" );
-    like( $message->[0]->{'message'},qr#^$confess#,"Check message contents" );
+    is( scalar( @{$message} ),2,"Check if number of messages ok" );
+    is( $message->[1]->{'level'},'critical',"Check type of message" );
+    like( $message->[1]->{'message'},qr#^$confess#,"Check message contents" );
 
     my $stderr = "This stderr will be displayed\n";
     print STDERR $stderr;
