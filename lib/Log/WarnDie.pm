@@ -4,6 +4,7 @@ package Log::WarnDie;
 # Be strict from now on
 
 $VERSION = '0.05';
+use warnings;
 use strict;
 
 # Make sure we have the modules that we need
@@ -15,14 +16,14 @@ use Scalar::Util qw(blessed);
 # The (original) error output handle
 # Reference to the previous parameters sent
 
-my $DISPATCHER;
-my $STDERR;
-my $LAST;
+our $DISPATCHER;
+our $STDERR;
+our $LAST;
 
 # Old settings of standard Perl logging mechanisms
 
-my $WARN;
-my $DIE;
+our $WARN;
+our $DIE;
 
 #---------------------------------------------------------------------------
 
