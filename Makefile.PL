@@ -13,4 +13,8 @@ WriteMakefile (
  PREREQ_PM	=> {qw(
                     Scalar::Util         1.08
                    )},
+	BUILD_REQUIRES => {
+		'Log::Dispatch::Null' => 0,
+		'Test::Most' => 0,
+	}
 );

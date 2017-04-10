@@ -65,6 +65,31 @@ sub PRINT {
 } #PRINT
 
 #---------------------------------------------------------------------------
+# PRINTF
+#
+# Called whenever something is printed on STDERR
+#
+#  IN: 1 blessed object returned by TIEHANDLE
+#      2..N whatever was needed to be printed
+
+sub PRINTF {
+
+# Lose the object
+# If there is a dispatcher
+#  Put it in the log handler if not the same as last time
+#  Reset the flag
+# Make sure it appears on the original STDERR as well
+
+    shift;
+    if ($DISPATCHER) {
+        $DISPATCHER->error( @_ )
+         unless $LAST and @$LAST == @_ and join( '',@$LAST ) eq join( '',@_ );
+        undef $LAST;
+    }
+    printf $STDERR @_;
+} #PRINT
+
+#---------------------------------------------------------------------------
 # At compile time
 #  Create new handle
 #  Make sure it's the same as the current STDERR

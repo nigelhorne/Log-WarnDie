@@ -1,9 +1,10 @@
+Changes
+lib/Log/WarnDie.pm
+Makefile.PL
 MANIFEST
-CHANGELOG
+META.yml			Module meta-data (added by MakeMaker)
 README
+t/rt39186.t
+t/warndie01.t
 TODO
 VERSION
-Makefile.PL
-lib/Log/WarnDie.pm
-t/warndie01.t
-META.yml                                 Module meta-data (added by MakeMaker)
