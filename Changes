@@ -1,6 +1,7 @@
 0.06
 	Added note that it doesn't currently work with Log4perl.
 	Fix RT39186 (thanks to skandranon@gmx.at)
+	Added hacky support for Log::Log4perl (RT121061).
 
 0.05	8 September 2007
 	Fixes to let the test-suite run ok.  Added test for STDERR.  Thanks

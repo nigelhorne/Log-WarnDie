@@ -122,7 +122,11 @@ BEGIN {
     $SIG{__WARN__} = sub {
         if ($DISPATCHER) {
             $LAST = \@_;
-            $DISPATCHER->warning( @_ );
+	    if(ref($DISPATCHER) =~ /^Log::Log4perl/) {
+		$DISPATCHER->warn( @_ );
+	    } else {
+		    $DISPATCHER->warning( @_ );
+	   }
         }
         $WARN ? $WARN->( @_ ) : CORE::warn( @_ );
     };
@@ -135,11 +139,15 @@ BEGIN {
 #   Executes the standard system die() or whatever was there before
 
     $DIE = $SIG{__DIE__};
+    ::diag(ref($DISPATCHER));
     $SIG{__DIE__} = sub {
         if ($DISPATCHER) {
             $LAST = \@_;
-	    print STDERR ref($DISPATCHER);
-            $DISPATCHER->critical( @_ );
+	    if(ref($DISPATCHER) =~ /^Log::Log4perl/) {
+		$DISPATCHER->fatal( @_ );
+	    } else {
+		    $DISPATCHER->critical( @_ );
+	   }
         }
         $DIE ? $DIE->( @_ ) : CORE::die( @_ );
     };
