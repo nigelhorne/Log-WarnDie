@@ -1,9 +1,5 @@
 package Log::WarnDie;
 
-# Make sure we have version info for this module
-# Be strict from now on
-
-$VERSION = '0.05';
 use warnings;
 use strict;
 
@@ -24,6 +20,19 @@ our $LAST;
 
 our $WARN;
 our $DIE;
+
+=head1 NAME
+
+Log::WarnDie - Log standard Perl warnings and errors on a log handler
+
+=head1 VERSION
+
+Version 0.06
+
+=cut
+
+our $VERSION = '0.06';
+
 
 #---------------------------------------------------------------------------
 
@@ -68,7 +77,7 @@ sub PRINT {
 #---------------------------------------------------------------------------
 # PRINTF
 #
-# Called whenever something is printed on STDERR
+# Called whenever something is printed on STDERR using printf
 #
 #  IN: 1 blessed object returned by TIEHANDLE
 #      2..N whatever was needed to be printed
@@ -213,10 +222,6 @@ sub unimport { import( undef ) } #unimport
 
 __END__
 
-=head1 NAME
-
-Log::WarnDie - Log standard Perl warnings and errors on a log handler
-
 =head1 SYNOPSIS
 
  use Log::WarnDie; # install to be used later
@@ -240,10 +245,6 @@ Log::WarnDie - Log standard Perl warnings and errors on a log handler
 
  warn "This is a warning"; # no longer dispatched
  die "Sorry it didn't work out"; # no longer dispatched
-
-=head1 VERSION
-
-This documentation describes version 0.05.
 
 =head1 DESCRIPTION
 
@@ -318,14 +319,24 @@ Unfortunately there is no automatic way to do that for you.
 
 =head1 AUTHOR
 
-Elizabeth Mattijsen, <liz@dijkmat.nl>.
+Elizabeth Mattijsen, <liz@dijkmat.nl>
 
-Please report bugs to <perlbugs@dijkmat.nl>.
+Maintained by Nigel Horne, C<< <njh at bandsman.co.uk> >>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to C<bug-log-warndie at rt.cpan.org>,
+or through the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Log-WarnDie>.
+I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
 
 =head1 COPYRIGHT
 
 Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
 reserved.  This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
+
+Versions 0.06 onwards, Copyright 2017 Nigel Horne
 
 =cut
