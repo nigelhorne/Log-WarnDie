@@ -4,7 +4,7 @@ Makefile.PL
 MANIFEST
 META.yml			Module meta-data (added by MakeMaker)
 README
+t/10_warndie.t
 t/rt39186.t
-t/warndie01.t
 TODO
 VERSION
