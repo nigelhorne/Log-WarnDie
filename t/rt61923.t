@@ -6,7 +6,9 @@ use Test::Most;
 
 # See https://rt.cpan.org/Public/Bug/Display.html?id=61932
 
-RT39186: {
+if(!(-e 't/online.enabled')) {
+	plan skip_all => 'On-line tests disabled';
+} else {
 	eval 'use Log::Dispatch::Buffer';
 
 	if($@) {
