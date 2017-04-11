@@ -9,9 +9,11 @@ README
 README.md
 t/00-load.t
 t/boiler.t
+t/changes.t
 t/coverage.t
 t/log4perl.t
 t/logdispatch.t
 t/rt39186.t
+t/rt61923.t
 TODO
 VERSION

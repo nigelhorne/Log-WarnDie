@@ -17,7 +17,8 @@ WriteMakefile (
 	PREREQ_PM	=> {
 		'Scalar::Util' => 1.08,
 	},
-	BUILD_REQUIRES => {
+	TEST_REQUIRES => {
+		'Net::SFTP::Foreign' => 0,
 		'Log::Dispatch::Null' => 0,
 		'Test::Most' => 0,
 	},
