@@ -1,10 +1,17 @@
+.appveyor.yml
+.travis.yml
 Changes
 lib/Log/WarnDie.pm
 Makefile.PL
 MANIFEST
 META.yml			Module meta-data (added by MakeMaker)
 README
-t/10_warndie.t
+README.md
+t/00-load.t
+t/boiler.t
+t/coverage.t
+t/log4perl.t
+t/logdispatch.t
 t/rt39186.t
 TODO
 VERSION

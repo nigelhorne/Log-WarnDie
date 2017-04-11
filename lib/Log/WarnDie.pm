@@ -21,18 +21,63 @@ our $LAST;
 our $WARN;
 our $DIE;
 
+=head1 VERSION
+
+Version 0.06
+
 =head1 NAME
 
 Log::WarnDie - Log standard Perl warnings and errors on a log handler
 
-=head1 VERSION
+=head1 SYNOPSIS
 
-Version 0.06
+ use Log::WarnDie; # install to be used later
+
+ my $dispatcher = Log::Dispatch->new;       # can be any dispatcher!
+ $dispatcher->add( Log::Dispatch::Foo->new( # whatever output you like
+  name      => 'foo',
+  min_level => 'info',
+ ) );
+
+ use Log::WarnDie $dispatcher; # activate later
+
+ Log::WarnDie->dispatcher( $dispatcher ); # same
+
+ warn "This is a warning";       # now also dispatched
+ die "Sorry it didn't work out"; # now also dispatched
+
+ no Log::WarnDie; # deactivate later
+
+ Log::WarnDie->dispatcher( undef ); # same
+
+ warn "This is a warning"; # no longer dispatched
+ die "Sorry it didn't work out"; # no longer dispatched
+
+=head1 DESCRIPTION
+
+The "Log::WarnDie" module offers a logging alternative for standard
+Perl core functions.  This allows you to use the features of e.g.
+L<Log::Dispatch> or L<Log::Log4perl> B<without> having to make extensive
+changes to your source code.
+
+When loaded, it installs a __WARN__ and __DIE__ handler and intercepts any
+output to STDERR.  It also takes over the messaging functions of L<Carp>.
+Without being further activated, the standard Perl logging functions continue
+to be executed: e.g. if you expect warnings to appear on STDERR, they will.
+
+Then, when necessary, you can activate actual logging through e.g.
+Log::Dispatch by installing a log dispatcher.  From then on, any warn, die,
+carp, croak, cluck, confess or print to the STDERR handle,  will be logged
+using the Log::Dispatch logging dispatcher.  Logging can be disabled and
+enabled at any time for critical sections of code.
 
 =cut
 
 our $VERSION = '0.06';
 
+=head1 SUBROUTINES/METHODS
+
+=cut
 
 #---------------------------------------------------------------------------
 
@@ -166,13 +211,16 @@ BEGIN {
 # Class methods
 
 #---------------------------------------------------------------------------
-# dispatcher
-#
-# Set and/or return the current dispatcher
-#
-#  IN: 1 class (ignored)
-#      2 new dispatcher (optional)
-# OUT: 1 current dispatcher
+
+=head2 dispatcher
+
+Class method to set and/or return the current dispatcher
+
+ IN: 1 class (ignored)
+     2 new dispatcher (optional)
+ OUT: 1 current dispatcher
+
+=cut
 
 sub dispatcher {
 
@@ -230,48 +278,6 @@ sub unimport { import( undef ) } #unimport
 #---------------------------------------------------------------------------
 
 __END__
-
-=head1 SYNOPSIS
-
- use Log::WarnDie; # install to be used later
-
- my $dispatcher = Log::Dispatch->new;       # can be any dispatcher!
- $dispatcher->add( Log::Dispatch::Foo->new( # whatever output you like
-  name      => 'foo',
-  min_level => 'info',
- ) );
-
- use Log::WarnDie $dispatcher; # activate later
-
- Log::WarnDie->dispatcher( $dispatcher ); # same
-
- warn "This is a warning";       # now also dispatched
- die "Sorry it didn't work out"; # now also dispatched
-
- no Log::WarnDie; # deactivate later
-
- Log::WarnDie->dispatcher( undef ); # same
-
- warn "This is a warning"; # no longer dispatched
- die "Sorry it didn't work out"; # no longer dispatched
-
-=head1 DESCRIPTION
-
-The "Log::WarnDie" module offers a logging alternative for standard
-Perl core functions.  This allows you to use the features of e.g.
-L<Log::Dispatch> or L<Log::Log4perl> B<without> having to make extensive
-changes to your source code.
-
-When loaded, it installs a __WARN__ and __DIE__ handler and intercepts any
-output to STDERR.  It also takes over the messaging functions of L<Carp>.
-Without being further activated, the standard Perl logging functions continue
-to be executed: e.g. if you expect warnings to appear on STDERR, they will.
-
-Then, when necessary, you can activate actual logging through e.g.
-Log::Dispatch by installing a log dispatcher.  From then on, any warn, die,
-carp, croak, cluck, confess or print to the STDERR handle,  will be logged
-using the Log::Dispatch logging dispatcher.  Logging can be disabled and
-enabled at any time for critical sections of code.
 
 =head1 LOG LEVELS
 
@@ -346,6 +352,6 @@ Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
 reserved.  This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
-Versions 0.06 onwards, Copyright 2017 Nigel Horne
+Portions of versions 0.06 onwards, Copyright 2017 Nigel Horne
 
 =cut
