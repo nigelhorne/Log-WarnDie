@@ -1,4 +1,4 @@
-0.06
+0.06	Wed Apr 12 11:22:01 EDT 2017
 	Added note that it doesn't currently work with Log4perl.
 	Fix RT39186 (thanks to skandranon@gmx.at)
 	Added hacky support for Log::Log4perl (RT121061).

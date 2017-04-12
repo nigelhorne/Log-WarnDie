@@ -1,6 +1,5 @@
-.appveyor.yml
-.travis.yml
 Changes
+ignore.txt
 lib/Log/WarnDie.pm
 Makefile.PL
 MANIFEST
@@ -13,7 +12,11 @@ t/changes.t
 t/coverage.t
 t/log4perl.t
 t/logdispatch.t
+t/pod-cm.t
+t/pod.t
+t/port.t
 t/rt39186.t
 t/rt61923.t
+t/spelling.t
 TODO
 VERSION
