@@ -359,7 +359,7 @@ installed.  Please note that for testing this module, you will need the
 L<Log::Dispatch::Buffer> module to also be available.
 
 This module has been tested with
-L<Log::Dispatch>, L<Log::Any> and L<Log::Log4perl> B<without>.
+L<Log::Dispatch>, L<Log::Any> and L<Log::Log4perl>.
 In principle any object which recognises C<warning>, C<error> and C<critical> should work.
 
 =head2 eval
