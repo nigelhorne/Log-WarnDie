@@ -2,6 +2,10 @@
 
 Log standard Perl warnings and errors on a log handler
 
+# VERSION
+
+Version 0.06
+
 # SYNOPSIS
 
     use Log::WarnDie; # install to be used later
@@ -26,15 +30,11 @@ Log standard Perl warnings and errors on a log handler
     warn "This is a warning"; # no longer dispatched
     die "Sorry it didn't work out"; # no longer dispatched
 
-# VERSION
-
-This documentation describes version 0.05.
-
 # DESCRIPTION
 
 The "Log::WarnDie" module offers a logging alternative for standard
 Perl core functions.  This allows you to use the features of e.g.
-[Log::Dispatch](https://metacpan.org/pod/Log::Dispatch) or [Log::Log4perl](https://metacpan.org/pod/Log::Log4perl) **without** having to make extensive
+[Log::Dispatch](https://metacpan.org/pod/Log::Dispatch), [Log::Any](https://metacpan.org/pod/Log::Any) or [Log::Log4perl](https://metacpan.org/pod/Log::Log4perl) **without** having to make extensive
 changes to your source code.
 
 When loaded, it installs a \_\_WARN\_\_ and \_\_DIE\_\_ handler and intercepts any
@@ -47,6 +47,16 @@ Log::Dispatch by installing a log dispatcher.  From then on, any warn, die,
 carp, croak, cluck, confess or print to the STDERR handle,  will be logged
 using the Log::Dispatch logging dispatcher.  Logging can be disabled and
 enabled at any time for critical sections of code.
+
+# SUBROUTINES/METHODS
+
+## dispatcher
+
+Class method to set and/or return the current dispatcher
+
+    IN: 1 class (ignored)
+        2 new dispatcher (optional)
+    OUT: 1 current dispatcher
 
 # LOG LEVELS
 
@@ -81,11 +91,9 @@ the real use of this module only comes into view when such a module **is**
 installed.  Please note that for testing this module, you will need the
 [Log::Dispatch::Buffer](https://metacpan.org/pod/Log::Dispatch::Buffer) module to also be available.
 
-An alternate logger may be [Log::Log4perl](https://metacpan.org/pod/Log::Log4perl), although this has not been tested
-by the author.  Any object that provides a `warning`, `error` and `critical`
-method, will operate with this module.
-Log4perl does not the message 'critical', so it will not work.
-A wishlist request has been sent (RT121065).
+This module has been tested with
+[Log::Dispatch](https://metacpan.org/pod/Log::Dispatch), [Log::Any](https://metacpan.org/pod/Log::Any) and [Log::Log4perl](https://metacpan.org/pod/Log::Log4perl) **without**.
+In principle any object which recognises `warning`, `error` and `critical` should work.
 
 ## eval
 
@@ -103,12 +111,22 @@ Unfortunately there is no automatic way to do that for you.
 
 # AUTHOR
 
-Elizabeth Mattijsen, <liz@dijkmat.nl>.
+Elizabeth Mattijsen, <liz@dijkmat.nl>
 
-Please report bugs to <perlbugs@dijkmat.nl>.
+Maintained by Nigel Horne, `<njh at bandsman.co.uk>`
+
+# BUGS
+
+Please report any bugs or feature requests to `bug-log-warndie at rt.cpan.org`,
+or through the web interface at
+[http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Log-WarnDie](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Log-WarnDie).
+I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
 
 # COPYRIGHT
 
 Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
 reserved.  This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
+
+Portions of versions 0.06 onwards, Copyright 2017 Nigel Horne

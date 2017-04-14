@@ -44,6 +44,8 @@ WriteMakefile (
 		'Net::SFTP::Foreign' => 0,
 		'Log::Dispatch::Null' => 0,
 		'Test::Most' => 0,
+		'Test::TempDir::Tiny' => 0,
+		'autodie' => 0,
 	},
 	dist		=> { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
 	clean		=> { FILES => 'Log::WarnDie-*' },

@@ -21,43 +21,43 @@ our $LAST;
 our $WARN;
 our $DIE;
 
-=head1 VERSION
-
-Version 0.06
-
 =head1 NAME
 
 Log::WarnDie - Log standard Perl warnings and errors on a log handler
 
+=head1 VERSION
+
+Version 0.06
+
 =head1 SYNOPSIS
 
- use Log::WarnDie; # install to be used later
+    use Log::WarnDie; # install to be used later
 
- my $dispatcher = Log::Dispatch->new;       # can be any dispatcher!
- $dispatcher->add( Log::Dispatch::Foo->new( # whatever output you like
-  name      => 'foo',
-  min_level => 'info',
- ) );
+    my $dispatcher = Log::Dispatch->new;       # can be any dispatcher!
+    $dispatcher->add( Log::Dispatch::Foo->new( # whatever output you like
+     name      => 'foo',
+     min_level => 'info',
+    ) );
 
- use Log::WarnDie $dispatcher; # activate later
+    use Log::WarnDie $dispatcher; # activate later
 
- Log::WarnDie->dispatcher( $dispatcher ); # same
+    Log::WarnDie->dispatcher( $dispatcher ); # same
 
- warn "This is a warning";       # now also dispatched
- die "Sorry it didn't work out"; # now also dispatched
+    warn "This is a warning";       # now also dispatched
+    die "Sorry it didn't work out"; # now also dispatched
 
- no Log::WarnDie; # deactivate later
+    no Log::WarnDie; # deactivate later
 
- Log::WarnDie->dispatcher( undef ); # same
+    Log::WarnDie->dispatcher( undef ); # same
 
- warn "This is a warning"; # no longer dispatched
- die "Sorry it didn't work out"; # no longer dispatched
+    warn "This is a warning"; # no longer dispatched
+    die "Sorry it didn't work out"; # no longer dispatched
 
 =head1 DESCRIPTION
 
 The "Log::WarnDie" module offers a logging alternative for standard
 Perl core functions.  This allows you to use the features of e.g.
-L<Log::Dispatch> or L<Log::Log4perl> B<without> having to make extensive
+L<Log::Dispatch>, L<Log::Any> or L<Log::Log4perl> B<without> having to make extensive
 changes to your source code.
 
 When loaded, it installs a __WARN__ and __DIE__ handler and intercepts any
@@ -358,11 +358,9 @@ the real use of this module only comes into view when such a module B<is>
 installed.  Please note that for testing this module, you will need the
 L<Log::Dispatch::Buffer> module to also be available.
 
-An alternate logger may be L<Log::Log4perl>, although this has not been tested
-by the author.  Any object that provides a C<warning>, C<error> and C<critical>
-method, will operate with this module.
-Log4perl does not the message 'critical', so it will not work.
-A wishlist request has been sent (RT121065).
+This module has been tested with
+L<Log::Dispatch>, L<Log::Any> and L<Log::Log4perl> B<without>.
+In principle any object which recognises C<warning>, C<error> and C<critical> should work.
 
 =head2 eval
 

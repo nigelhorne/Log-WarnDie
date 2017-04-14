@@ -2,6 +2,7 @@
 	Added support to redirect STDERR, so code such as this now works:
 		close STDERR;
 		open(STDERR, '>>', "$tmpdir/$script_name.stderr");
+	Checked it works with Log::Any
 
 0.06	Wed Apr 12 11:22:01 EDT 2017
 	Added note that it doesn't currently work with Log4perl.
