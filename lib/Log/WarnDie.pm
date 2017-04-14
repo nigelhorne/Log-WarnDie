@@ -184,7 +184,6 @@ BEGIN {
 #   Executes the standard system die() or whatever was there before
 
     $DIE = $SIG{__DIE__};
-    ::diag(ref($DISPATCHER));
     $SIG{__DIE__} = sub {
         if ($DISPATCHER) {
             $LAST = \@_;
