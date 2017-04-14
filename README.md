@@ -4,7 +4,7 @@ Log standard Perl warnings and errors on a log handler
 
 # VERSION
 
-Version 0.06
+Version 0.07
 
 # SYNOPSIS
 
