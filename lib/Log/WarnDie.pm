@@ -116,7 +116,9 @@ sub PRINT {
          unless $LAST and @$LAST == @_ and join( '',@$LAST ) eq join( '',@_ );
         undef $LAST;
     }
-    print $STDERR @_;
+    if($STDERR) {
+	print $STDERR @_;
+    }
 } #PRINT
 
 #---------------------------------------------------------------------------
@@ -141,9 +143,54 @@ sub PRINTF {
          unless $LAST and @$LAST == @_ and join( '',@$LAST ) eq join( '',@_ );
         undef $LAST;
     }
-    printf $STDERR @_;
-} #PRINT
+    if($STDERR) {
+	printf $STDERR @_;
+    }
+} #PRINTF
 
+#---------------------------------------------------------------------------
+# CLOSE
+#
+# Called whenever something tries to close STDERR
+#
+#  IN: 1 blessed object returned by TIEHANDLE
+#      2..N whatever was needed to be printed
+
+sub CLOSE {
+
+# Lose the object
+# If there is a dispatcher
+#  Put it in the log handler if not the same as last time
+#  Reset the flag
+# Make sure it appears on the original STDERR as well
+
+    my $keep = $STDERR;
+    $STDERR = undef;
+    close $keep;	# So that the return status can be checked
+} #CLOSE
+
+#---------------------------------------------------------------------------
+# OPEN
+#
+# Called whenever something tries to (re)open STDERR
+#
+#  IN: 1 blessed object returned by TIEHANDLE
+#      2..N whatever was needed to be printed
+
+sub OPEN {
+
+# Lose the object
+# If there is a dispatcher
+#  Put it in the log handler if not the same as last time
+#  Reset the flag
+# Make sure it appears on the original STDERR as well
+
+	shift;
+	my $arg1 = shift;
+	my $arg2 = shift;
+
+	open($STDERR, $arg1, $arg2);
+} #OPEN
 #---------------------------------------------------------------------------
 # At compile time
 #  Create new handle
