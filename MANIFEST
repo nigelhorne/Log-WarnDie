@@ -18,6 +18,7 @@ t/kwalitee.t
 t/log4perl.t
 t/logany.t
 t/logdispatch.t
+t/manifest.t
 t/online.enabled
 t/pod-cm.t
 t/pod.t

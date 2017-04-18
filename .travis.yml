@@ -13,7 +13,7 @@ perl:
   - "5.12"
 
 before_install:
-  cpanm -n Devel::Cover::Report::Coveralls Log::Log4perl Test::Log4perl IPC::System::Simple
+  cpanm -n Devel::Cover::Report::Coveralls Log::Log4perl Test::Log4perl IPC::System::Simple Test::Pod::Coverage Log::Any::Adapter Test::Por::Spelling::CommonMistakes Log::Dispatch::Buffer
 
 install:
   - cpanm -v --installdeps --notest .
