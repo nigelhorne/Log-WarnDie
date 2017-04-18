@@ -24,6 +24,7 @@ t/online.enabled
 t/pod-cm.t
 t/pod.t
 t/port.t
+t/prereq.t
 t/rt39186.t
 t/rt61923.t
 t/spelling.t
