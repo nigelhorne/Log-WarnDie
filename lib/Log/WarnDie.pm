@@ -32,8 +32,9 @@ Version 0.07
 =head1 SYNOPSIS
 
     use Log::WarnDie; # install to be used later
+    use Log::Dispatch;
 
-    my $dispatcher = Log::Dispatch->new;       # can be any dispatcher!
+    my $dispatcher = Log::Dispatch->new();       # can be any dispatcher!
     $dispatcher->add( Log::Dispatch::Foo->new( # whatever output you like
      name      => 'foo',
      min_level => 'info',
@@ -262,9 +263,9 @@ BEGIN {
 
 Class method to set and/or return the current dispatcher
 
- IN: 1 class (ignored)
-     2 new dispatcher (optional)
- OUT: 1 current dispatcher
+# IN: 1 class (ignored)
+#     2 new dispatcher (optional)
+# OUT: 1 current dispatcher
 
 =cut
 
@@ -370,7 +371,7 @@ handler _will_ get called inside the eval.  Which may or may not be what you
 want.  To prevent the __DIE__ handler to be called inside eval's, add the
 following line to the eval block or string being evaluated:
 
-  local $SIG{__DIE__} = undef;
+    local $SIG{__DIE__} = undef;
 
 This disables the __DIE__ handler within the evalled block or string, and
 will automatically enable it again upon exit of the evalled block or string.

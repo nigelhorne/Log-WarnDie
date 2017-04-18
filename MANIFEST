@@ -27,6 +27,11 @@ t/port.t
 t/prereq.t
 t/rt39186.t
 t/rt61923.t
+t/snippets.t
 t/spelling.t
+t/strict.t
+t/unused.t
+t/used.t
+t/vars.t
 TODO
 VERSION
