@@ -12,6 +12,9 @@ t/changes.t
 t/coverage.t
 t/critic.t
 t/cv.t
+t/dist.t
+t/gv.t
+t/kwalitee.t
 t/log4perl.t
 t/logany.t
 t/logdispatch.t

@@ -20,9 +20,19 @@ if($ENV{RELEASE_TESTING}) {
 	}
 }
 
+my $test_requires = {
+	'Log::Dispatch::Null' => 0,
+	'Test::Most' => 0,
+	'Test::TempDir::Tiny' => 0,
+	'autodie' => 0,
+	'Test::File::Contents' => 0,
+};
+
 if($online_tests) {
 	open(my $enabled, '>', 't/online.enabled') || die "Can't touch t/online.enabled $!";
 	close($enabled) || die "Can't touch t/online.enabled $!";
+
+	$test_requires->{'Net::SFTP::Foreign'} = 0;
 } else {
 	unlink('t/online.enabled');
 }
@@ -40,13 +50,7 @@ WriteMakefile (
 	PREREQ_PM	=> {
 		'Scalar::Util' => 1.08,
 	},
-	TEST_REQUIRES => {
-		'Net::SFTP::Foreign' => 0,
-		'Log::Dispatch::Null' => 0,
-		'Test::Most' => 0,
-		'Test::TempDir::Tiny' => 0,
-		'autodie' => 0,
-	},
+	TEST_REQUIRES => $test_requires,
 	dist		=> { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
 	clean		=> { FILES => 'Log::WarnDie-*' },
 	META_MERGE	=> {

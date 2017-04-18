@@ -5,6 +5,7 @@ use strict;
 
 use Test::Most;
 use Test::TempDir::Tiny;
+use Test::File::Contents;
 use autodie qw(:all);
 
 LOGANY: {
@@ -29,11 +30,7 @@ LOGANY: {
 		my $die = "This die will not be displayed\n";
 		eval {die $die};
 
-		open(my $fin, '<', $filename);
-		local $/;
-		my $messages = <$fin>;
-
-		ok($messages =~ /$warn/s);
-		ok($messages =~ /$die/s);
+		file_contents_like($filename, $warn, 'Verify warn message is logged');
+		file_contents_like($filename, $die, 'Verify die message is logged');
 	}
 }
