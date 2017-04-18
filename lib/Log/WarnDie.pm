@@ -241,7 +241,14 @@ BEGIN {
 		    $DISPATCHER->critical( @_ );
 	   }
         }
-        $DIE ? $DIE->( @_ ) : CORE::die( @_ );
+	# Handle http://stackoverflow.com/questions/8078220/custom-error-handling-is-catching-errors-that-normally-are-not-displayed
+	# $DIE ? $DIE->( @_ ) : CORE::die( @_ );
+	if($DIE) {
+		$DIE->(@_);
+	} else {
+		return unless((defined $^S) && ($^S == 0));	# Ignore errors in eval
+		CORE::die(@_);
+	}
     };
 
 #  Make sure we won't be listed ourselves by Carp::
