@@ -1,7 +1,9 @@
 0.08:
 	Use Test::File::Contents
-	Only add Net::SFTP::Foreign as a testing pre-requisite if it's going to be tested against
+	Only add Net::SFTP::Foreign as a testing pre-requisite if it's going
+		to be tested against
 	Try to fix "S_IFFIFO is not a valid Fcntl macro"
+	Fix http://www.cpantesters.org/cpan/report/17443138-226c-11e7-a074-e1beba07c9dd
 
 0.07:	Fri Apr 14 16:29:20 EDT 2017
 	Added support to redirect STDERR, so code such as this now works:
