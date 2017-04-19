@@ -4,13 +4,14 @@ Log standard Perl warnings and errors on a log handler
 
 # VERSION
 
-Version 0.07
+Version 0.08
 
 # SYNOPSIS
 
     use Log::WarnDie; # install to be used later
+    use Log::Dispatch;
 
-    my $dispatcher = Log::Dispatch->new;       # can be any dispatcher!
+    my $dispatcher = Log::Dispatch->new();       # can be any dispatcher!
     $dispatcher->add( Log::Dispatch::Foo->new( # whatever output you like
      name      => 'foo',
      min_level => 'info',
@@ -54,9 +55,9 @@ enabled at any time for critical sections of code.
 
 Class method to set and/or return the current dispatcher
 
-    IN: 1 class (ignored)
-        2 new dispatcher (optional)
-    OUT: 1 current dispatcher
+\# IN: 1 class (ignored)
+\#     2 new dispatcher (optional)
+\# OUT: 1 current dispatcher
 
 # LOG LEVELS
 
@@ -92,7 +93,7 @@ installed.  Please note that for testing this module, you will need the
 [Log::Dispatch::Buffer](https://metacpan.org/pod/Log::Dispatch::Buffer) module to also be available.
 
 This module has been tested with
-[Log::Dispatch](https://metacpan.org/pod/Log::Dispatch), [Log::Any](https://metacpan.org/pod/Log::Any) and [Log::Log4perl](https://metacpan.org/pod/Log::Log4perl) **without**.
+[Log::Dispatch](https://metacpan.org/pod/Log::Dispatch), [Log::Any](https://metacpan.org/pod/Log::Any) and [Log::Log4perl](https://metacpan.org/pod/Log::Log4perl).
 In principle any object which recognises `warning`, `error` and `critical` should work.
 
 ## eval

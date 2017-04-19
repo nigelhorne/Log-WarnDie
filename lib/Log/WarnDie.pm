@@ -27,7 +27,7 @@ Log::WarnDie - Log standard Perl warnings and errors on a log handler
 
 =head1 VERSION
 
-Version 0.07
+Version 0.08
 
 =head1 SYNOPSIS
 
@@ -74,7 +74,7 @@ enabled at any time for critical sections of code.
 
 =cut
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 =head1 SUBROUTINES/METHODS
 
