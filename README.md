@@ -32,7 +32,7 @@ Version 0.09
     warn "This is a warning"; # no longer dispatched
     die "Sorry it didn't work out"; # no longer dispatched
 
-    # Filter out File::stat noice
+    # Filter out File::stat noise
     sub filter {
             return ($_[0] !~ /^S_IFFIFO is not a valid Fcntl macro/);
     }
@@ -71,7 +71,7 @@ Class method to set and/or get the current output filter
 
 The given callback function should return 1 to output the given message, or 0
 to drop it.
-Useful for noisy messages such as File::stat giving S\_FIFIO is not a valid Fcntl macro.
+Useful for noisy messages such as File::stat giving S\_IFFIFO is not a valid Fcntl macro.
 
 # LOG LEVELS
 
