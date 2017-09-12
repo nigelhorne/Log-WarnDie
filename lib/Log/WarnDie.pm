@@ -233,7 +233,10 @@ BEGIN {
 
     $DIE = $SIG{__DIE__};
     $SIG{__DIE__} = sub {
-        if ($DISPATCHER) {
+	# File::stat goes to long efforts to not display the Fcntl message - then we go and display it,
+	#	so let's not do that
+	# TODO: would be better to set a list of messages to be filtered out
+	if ($DISPATCHER && ($_[0] !~ /^S_IFFIFO is not a valid Fcntl macro/)) {
             $LAST = \@_;
 	    if(ref($DISPATCHER) =~ /^Log::Log4perl/) {
 		$DISPATCHER->fatal( @_ );
