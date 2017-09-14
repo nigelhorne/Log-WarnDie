@@ -20,7 +20,6 @@ t/logany.t
 t/logdispatch.t
 t/manifest.t
 t/metrics.t
-t/online.enabled
 t/pod-cm.t
 t/pod.t
 t/port.t
