@@ -1,3 +1,5 @@
+[![CPAN](https://img.shields.io/cpan/v/Log-WarnDie.svg)](http://search.cpan.org/~nhorne/Log-WarnDie/)
+
 # Log::WarnDie
 
 Log standard Perl warnings and errors on a log handler

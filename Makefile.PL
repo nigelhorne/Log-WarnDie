@@ -27,6 +27,7 @@ my $test_requires = {
 	'autodie' => 0,
 	'IPC::System::Simple' => 0,
 	'Test::File::Contents' => 0,
+	'File::Spec' => 3.4,
 };
 
 if($online_tests) {
