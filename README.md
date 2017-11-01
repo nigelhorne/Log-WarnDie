@@ -1,3 +1,7 @@
+[![Linux Build Status](https://travis-ci.org/nigelhorne/Log-WarnDie.svg?branch=master)](https://travis-ci.org/nigelhorne/Log-WarnDie)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/1t1yhvagx00c2qi8?svg=true)](https://ci.appveyor.com/project/nigelhorne/cgi-info)
+[![Dependency Status](https://dependencyci.com/github/nigelhorne/Log-WarnDie/badge)](https://dependencyci.com/github/nigelhorne/Log-WarnDie)
+[![Coverage Status](https://coveralls.io/repos/github/nigelhorne/Log-WarnDie/badge.svg?branch=master)](https://coveralls.io/github/nigelhorne/Log-WarnDie?branch=master)
 [![CPAN](https://img.shields.io/cpan/v/Log-WarnDie.svg)](http://search.cpan.org/~nhorne/Log-WarnDie/)
 
 # Log::WarnDie

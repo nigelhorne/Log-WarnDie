@@ -149,16 +149,18 @@ sub PRINTF {
 # Make sure it appears on the original STDERR as well
 
     shift;
+    my $format = shift;
+    my @args = @_;
     if($FILTER) {
-    	return unless($FILTER->(@_));
+    	return unless($FILTER->(sprintf($format, @args)));
     }
     if ($DISPATCHER) {
-        $DISPATCHER->error( @_ )
-         unless $LAST and @$LAST == @_ and join( '',@$LAST ) eq join( '',@_ );
+        $DISPATCHER->error(sprintf($format, @args))
+         unless $LAST and @$LAST == @args and join( '',@$LAST ) eq join( '',@args );
         undef $LAST;
     }
     if($STDERR) {
-	printf $STDERR @_;
+	printf $STDERR @args;
     }
 } #PRINTF
 
