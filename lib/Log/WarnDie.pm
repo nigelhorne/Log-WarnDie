@@ -214,7 +214,7 @@ sub OPEN {
 #  Make sure the original STDERR is now handled by our sub
 
 BEGIN {
-    $STDERR = new IO::Handle;
+    $STDERR = IO::Handle->new();
     $STDERR->fdopen( fileno( STDERR ),"w" )
      or die "Could not open STDERR 2nd time: $!\n";
     tie *STDERR,__PACKAGE__;
@@ -315,7 +315,7 @@ sub dispatcher {
 # Return the current dispatcher if no changes needed
 # Set the new dispatcher
 
-    return $DISPATCHER unless @_ > 1;
+    return $DISPATCHER if(scalar(@_) <= 1);
     $DISPATCHER = $_[1];
 
 # If there is a dispatcher now
@@ -351,10 +351,9 @@ Useful for noisy messages such as File::stat giving S_IFFIFO is not a valid Fcnt
 =cut
 
 sub filter {
-	return $FILTER unless @_ > 1;
+	return $FILTER if(scalar(@_) <= 1);
 	$FILTER = $_[1];
 }
-
 
 #---------------------------------------------------------------------------
 
@@ -380,6 +379,30 @@ sub filter {
 sub unimport { import( undef ) } #unimport
 
 #---------------------------------------------------------------------------
+
+=head1 AUTHOR
+
+Elizabeth Mattijsen, <liz@dijkmat.nl>
+
+Maintained by Nigel Horne, C<< <njh at bandsman.co.uk> >>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to C<bug-log-warndie at rt.cpan.org>,
+or through the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Log-WarnDie>.
+I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
+
+=head1 COPYRIGHT
+
+Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
+reserved.  This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+Portions of versions 0.06 onwards, Copyright 2017 Nigel Horne
+
+1;
 
 __END__
 
@@ -433,27 +456,5 @@ following line to the eval block or string being evaluated:
 This disables the __DIE__ handler within the evalled block or string, and
 will automatically enable it again upon exit of the evalled block or string.
 Unfortunately there is no automatic way to do that for you.
-
-=head1 AUTHOR
-
-Elizabeth Mattijsen, <liz@dijkmat.nl>
-
-Maintained by Nigel Horne, C<< <njh at bandsman.co.uk> >>
-
-=head1 BUGS
-
-Please report any bugs or feature requests to C<bug-log-warndie at rt.cpan.org>,
-or through the web interface at
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Log-WarnDie>.
-I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
-
-=head1 COPYRIGHT
-
-Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
-reserved.  This program is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself.
-
-Portions of versions 0.06 onwards, Copyright 2017 Nigel Horne
 
 =cut

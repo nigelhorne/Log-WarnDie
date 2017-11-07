@@ -1,3 +1,7 @@
+#!perl -w
+
+use warnings;
+use strict;
 
 BEGIN {				# Magic Perl CORE pragma
     if ($ENV{PERL_CORE}) {
