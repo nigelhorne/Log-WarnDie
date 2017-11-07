@@ -51,6 +51,5 @@ TODO: {
 		"placeholder date/time" => qr(Date/time)
 	);
 
-	module_boilerplate_ok('lib/Log/Warndie.pm');
+	module_boilerplate_ok('lib/Log/WarnDie.pm');
 }
-
