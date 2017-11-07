@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/nigelhorne/Log-WarnDie/badge.svg?branch=master)](https://coveralls.io/github/nigelhorne/Log-WarnDie?branch=master)
 [![CPAN](https://img.shields.io/cpan/v/Log-WarnDie.svg)](http://search.cpan.org/~nhorne/Log-WarnDie/)
 
-# Log::WarnDie
+# NAME Log::WarnDie
 
 Log standard Perl warnings and errors on a log handler
 
@@ -61,6 +61,22 @@ carp, croak, cluck, confess or print to the STDERR handle,  will be logged
 using the Log::Dispatch logging dispatcher.  Logging can be disabled and
 enabled at any time for critical sections of code.
 
+The following log levels are used:
+
+## warning
+
+Any `warn`, `Carp::carp` or `Carp::cluck` will generate a "warning" level
+message.
+
+## error
+
+Any direct output to STDERR will generate an "error" level message.
+
+## critical
+
+Any `die`, `Carp::croak` or `Carp::confess` will generate a "critical"
+level message.
+
 # SUBROUTINES/METHODS
 
 ## dispatcher
@@ -79,27 +95,19 @@ The given callback function should return 1 to output the given message, or 0
 to drop it.
 Useful for noisy messages such as File::stat giving S\_IFFIFO is not a valid Fcntl macro.
 
-# LOG LEVELS
+# AUTHOR
 
-The following log levels are used:
+Elizabeth Mattijsen, <liz@dijkmat.nl>
 
-## warning
+Maintained by Nigel Horne, `<njh at bandsman.co.uk>`
 
-Any `warn`, `Carp::carp` or `Carp::cluck` will generate a "warning" level
-message.
+# BUGS
 
-## error
-
-Any direct output to STDERR will generate an "error" level message.
-
-## critical
-
-Any `die`, `Carp::croak` or `Carp::confess` will generate a "critical"
-level message.
-
-# REQUIRED MODULES
-
-    Scalar::Util (1.08)
+Please report any bugs or feature requests to `bug-log-warndie at rt.cpan.org`,
+or through the web interface at
+[http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Log-WarnDie](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Log-WarnDie).
+I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
 
 # CAVEATS
 
@@ -129,20 +137,6 @@ following line to the eval block or string being evaluated:
 This disables the \_\_DIE\_\_ handler within the evalled block or string, and
 will automatically enable it again upon exit of the evalled block or string.
 Unfortunately there is no automatic way to do that for you.
-
-# AUTHOR
-
-Elizabeth Mattijsen, <liz@dijkmat.nl>
-
-Maintained by Nigel Horne, `<njh at bandsman.co.uk>`
-
-# BUGS
-
-Please report any bugs or feature requests to `bug-log-warndie at rt.cpan.org`,
-or through the web interface at
-[http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Log-WarnDie](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Log-WarnDie).
-I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
 
 # COPYRIGHT
 

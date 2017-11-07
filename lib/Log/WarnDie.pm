@@ -79,6 +79,22 @@ carp, croak, cluck, confess or print to the STDERR handle,  will be logged
 using the Log::Dispatch logging dispatcher.  Logging can be disabled and
 enabled at any time for critical sections of code.
 
+The following log levels are used:
+
+=head2 warning
+
+Any C<warn>, C<Carp::carp> or C<Carp::cluck> will generate a "warning" level
+message.
+
+=head2 error
+
+Any direct output to STDERR will generate an "error" level message.
+
+=head2 critical
+
+Any C<die>, C<Carp::croak> or C<Carp::confess> will generate a "critical"
+level message.
+
 =cut
 
 our $VERSION = '0.09';
@@ -292,8 +308,6 @@ BEGIN {
 
 # Satisfy require
 
-1;
-
 #---------------------------------------------------------------------------
 
 # Class methods
@@ -394,40 +408,6 @@ L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Log-WarnDie>.
 I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
-=head1 COPYRIGHT
-
-Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
-reserved.  This program is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself.
-
-Portions of versions 0.06 onwards, Copyright 2017 Nigel Horne
-
-1;
-
-__END__
-
-=head1 LOG LEVELS
-
-The following log levels are used:
-
-=head2 warning
-
-Any C<warn>, C<Carp::carp> or C<Carp::cluck> will generate a "warning" level
-message.
-
-=head2 error
-
-Any direct output to STDERR will generate an "error" level message.
-
-=head2 critical
-
-Any C<die>, C<Carp::croak> or C<Carp::confess> will generate a "critical"
-level message.
-
-=head1 REQUIRED MODULES
-
- Scalar::Util (1.08)
-
 =head1 CAVEATS
 
 The following caveats may apply to your situation.
@@ -457,4 +437,14 @@ This disables the __DIE__ handler within the evalled block or string, and
 will automatically enable it again upon exit of the evalled block or string.
 Unfortunately there is no automatic way to do that for you.
 
+=head1 COPYRIGHT
+
+Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
+reserved.  This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+Portions of versions 0.06 onwards, Copyright 2017 Nigel Horne
+
 =cut
+
+1;
