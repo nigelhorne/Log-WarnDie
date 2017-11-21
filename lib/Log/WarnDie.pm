@@ -167,6 +167,7 @@ sub PRINTF {
     shift;
     my $format = shift;
     my @args = @_;
+    return if(scalar(@args) == 0);
     if($FILTER) {
     	return unless($FILTER->(sprintf($format, @args)));
     }
@@ -176,7 +177,7 @@ sub PRINTF {
         undef $LAST;
     }
     if($STDERR) {
-	printf $STDERR @args;
+	printf $STDERR $format, @args;
     }
 } #PRINTF
 
