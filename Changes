@@ -1,7 +1,6 @@
 0.10
 	Fixed http://www.cpantesters.org/cpan/report/5164cd0a-b344-11e7-a2a8-d0c13ad602b4
 	Fix printf when given a format
-	Avoid 'Can't call method \"log\" on an undefined value' during the destroy phase
 
 0.09	Tue Sep 12 13:18:58 EDT 2017
 	Added output filter
