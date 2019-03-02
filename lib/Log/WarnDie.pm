@@ -34,6 +34,7 @@ Version 0.09
 
     use Log::WarnDie; # install to be used later
     use Log::Dispatch;
+    use Log::Dispatch::Foo;
 
     my $dispatcher = Log::Dispatch->new();       # can be any dispatcher!
     $dispatcher->add( Log::Dispatch::Foo->new( # whatever output you like
