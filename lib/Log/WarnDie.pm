@@ -253,12 +253,12 @@ BEGIN {
 		}
 	}
 	# Avoid 'Can't call method \"log\" on an undefined value' during the destroy phase
-	# if(defined($^V) && ($^V ge 'v5.14.0')) {
-		# if(${^GLOBAL_PHASE} eq 'DESTRUCT') {	# >= 5.14.0 only
-			# CORE::warn(@_);
-			# return;
-		# }
-	# }
+	if(defined($^V) && ($^V ge 'v5.14.0')) {
+		if(${^GLOBAL_PHASE} eq 'DESTRUCT') {	# >= 5.14.0 only
+			CORE::warn(@_);
+			return;
+		}
+	}
         if ($DISPATCHER) {
             $LAST = \@_;
 	    if(ref($DISPATCHER) =~ /^Log::Log4perl/) {
