@@ -115,7 +115,7 @@ our $VERSION = '0.09';
 # Called whenever a dispatcher is activated
 #
 #  IN: 1 class with which to bless
-# OUT: 1 blessed object 
+# OUT: 1 blessed object
 
 sub TIEHANDLE { bless \"$_[0]",$_[0] } #TIEHANDLE
 
@@ -137,7 +137,7 @@ sub PRINT {
 
     shift;
     if($FILTER) {
-    	return unless($FILTER->(@_));
+	return unless($FILTER->(@_));
     }
     if ($DISPATCHER) {
         $DISPATCHER->error( @_ )
@@ -170,7 +170,7 @@ sub PRINTF {
     my @args = @_;
     return if(scalar(@args) == 0);
     if($FILTER) {
-    	return unless($FILTER->(sprintf($format, @args)));
+	return unless($FILTER->(sprintf($format, @args)));
     }
     if ($DISPATCHER) {
         $DISPATCHER->error(sprintf($format, @args))
