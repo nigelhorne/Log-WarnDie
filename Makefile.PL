@@ -1,10 +1,11 @@
 require 5.006;
-
 use strict;
-use ExtUtils::MakeMaker;
+use warnings;
+use ExtUtils::MakeMaker 6.64;	# 6.64 for TEST_REQUIRES
+use File::Spec 3.4;
 use IO::Socket::INET;
 use Getopt::Long;	# Technique inspired by IO::Lambda
-eval "use Devel::Required";
+eval 'use Devel::Required';
 
 my $online_tests;
 
@@ -62,9 +63,11 @@ WriteMakefile (
 				type => 'git',
 				url => 'git://github.com/nigelhorne/Log::WarnDie.git',
 				web => 'https://github.com/nigelhorne/Log::WarnDie',
+				repository => 'https://github.com/nigelhorne/Log-WarnDie',
 			},
 			bugtracker => {
-				web => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Log::WarnDie',
+				# web => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Log::WarnDie',
+				web => 'https://github.com/nigelhorne/Log-WarnDie',
 				mailto => 'bug-Log::WarnDie@rt.cpan.org'
 			}
 		}
