@@ -137,7 +137,7 @@ sub PRINT {
 
     shift;
     if($FILTER) {
-	return unless($FILTER->(@_));
+	return if($FILTER->(@_) == 0);
     }
     if ($DISPATCHER) {
         $DISPATCHER->error( @_ )
@@ -170,7 +170,7 @@ sub PRINTF {
     my @args = @_;
     return if(scalar(@args) == 0);
     if($FILTER) {
-	return unless($FILTER->(sprintf($format, @args)));
+	return if($FILTER->(sprintf($format, @args)) == 0);
     }
     if ($DISPATCHER) {
         $DISPATCHER->error(sprintf($format, @args))
@@ -247,8 +247,8 @@ BEGIN {
     $WARN = $SIG{__WARN__};
     $SIG{__WARN__} = sub {
 	if($FILTER) {
-		unless($FILTER->(@_)) {
-			$WARN ? $WARN->( @_ ) : CORE::warn( @_ );
+		if($FILTER->(@_) == 0) {
+			# $WARN ? $WARN->( @_ ) : CORE::warn( @_ );
 			return;
 		}
 	}
@@ -279,16 +279,16 @@ BEGIN {
 
     $DIE = $SIG{__DIE__};
     $SIG{__DIE__} = sub {
-	# File::stat goes to long efforts to not display the Fcntl message - then we go and display it,
-	#	so let's not do that
 	if ($DISPATCHER) {
 		if($FILTER) {
-			unless($FILTER->(@_)) {
+			if($FILTER->(@_) == 0) {
 				if($DIE) {
-					$DIE->(@_);
+					# $DIE->(@_);
+					$DIE->();
 				} else {
 					return unless((defined $^S) && ($^S == 0));	# Ignore errors in eval
-					CORE::die(@_);
+					# CORE::die(@_);
+					CORE::die;
 				}
 			}
 		}
@@ -451,7 +451,7 @@ Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
 reserved.  This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
-Portions of versions 0.06 onwards, Copyright 2017 Nigel Horne
+Portions of versions 0.06 onwards, Copyright 2017-2023 Nigel Horne
 
 =cut
 
