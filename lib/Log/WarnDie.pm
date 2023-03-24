@@ -281,8 +281,7 @@ BEGIN {
     $SIG{__DIE__} = sub {
 	# File::stat goes to long efforts to not display the Fcntl message - then we go and display it,
 	#	so let's not do that
-	# TODO: would be better to set a list of messages to be filtered out
-	if ($DISPATCHER && ($_[0] !~ /^S_IFFIFO is not a valid Fcntl macro/)) {
+	if ($DISPATCHER) {
 		if($FILTER) {
 			unless($FILTER->(@_)) {
 				if($DIE) {
