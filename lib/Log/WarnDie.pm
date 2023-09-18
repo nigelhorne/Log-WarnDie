@@ -34,10 +34,10 @@ Version 0.09
 
     use Log::WarnDie; # install to be used later
     use Log::Dispatch;
-    use Log::Dispatch::Foo;
+    use Log::Dispatch::Email::Sendmail;
 
     my $dispatcher = Log::Dispatch->new();       # can be any dispatcher!
-    $dispatcher->add( Log::Dispatch::Foo->new( # whatever output you like
+    $dispatcher->add( Log::Dispatch::Email::Sendmail->new( # whatever output you like
      name      => 'foo',
      min_level => 'info',
     ) );
