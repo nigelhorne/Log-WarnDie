@@ -24,6 +24,7 @@ if($ENV{RELEASE_TESTING}) {
 my $test_requires = {
 	'Log::Dispatch::Null' => 0,
 	'Test::Most' => 0,
+	'Test::Needs' => 0,
 	'Test::TempDir::Tiny' => 0,
 	'autodie' => 0,
 	'IPC::System::Simple' => 0,
