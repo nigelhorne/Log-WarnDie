@@ -9,15 +9,16 @@ eval 'use Devel::Required';
 
 my $online_tests;
 
-if($ENV{RELEASE_TESTING}) {
+if($ENV{'AUTHOR_TESTING'}) {
 	$online_tests = are_online();
-} elsif($ENV{AUTOMATED_TESTING} || $ENV{NO_NETWORK_TESTING}) {
-	$online_tests = 0;
 } else {
 	Getopt::Long::GetOptions('online-tests!' => \$online_tests);
 
 	if(!defined($online_tests)) {
 		$online_tests = are_online();
+	}
+	if(!$online_tests) {
+		print "On-line tests have been disabled\n";
 	}
 }
 
@@ -78,6 +79,8 @@ WriteMakefile (
 
 sub are_online
 {
+	return 0 if($ENV{'NO_NETWORK_TESTING'} || $ENV{'TRAVIS_PERL_VERSION'}) || $ENV{'AUTOMATED_TESTING'} || (!-t STDIN);
+
 	my $s = IO::Socket::INET->new(
 		# PeerAddr => 'www.ripe.net:43',
 		PeerAddr => 'test.rebex.net:22',

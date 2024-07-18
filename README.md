@@ -10,7 +10,7 @@ Log::WarnDie - Log standard Perl warnings and errors on a log handler
 
 # VERSION
 
-Version 0.10
+Version 0.11
 
 # SYNOPSIS
 
