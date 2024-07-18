@@ -4,21 +4,22 @@
 [![Coverage Status](https://coveralls.io/repos/github/nigelhorne/Log-WarnDie/badge.svg?branch=master)](https://coveralls.io/github/nigelhorne/Log-WarnDie?branch=master)
 [![CPAN](https://img.shields.io/cpan/v/Log-WarnDie.svg)](http://search.cpan.org/~nhorne/Log-WarnDie/)
 
-# NAME Log::WarnDie
+# NAME
 
-Log standard Perl warnings and errors on a log handler
+Log::WarnDie - Log standard Perl warnings and errors on a log handler
 
 # VERSION
 
-Version 0.09
+Version 0.10
 
 # SYNOPSIS
 
     use Log::WarnDie; # install to be used later
     use Log::Dispatch;
+    use Log::Dispatch::Email::Sendmail;
 
     my $dispatcher = Log::Dispatch->new();       # can be any dispatcher!
-    $dispatcher->add( Log::Dispatch::Foo->new( # whatever output you like
+    $dispatcher->add( Log::Dispatch::Email::Sendmail->new( # whatever output you like
      name      => 'foo',
      min_level => 'info',
     ) );
@@ -47,7 +48,7 @@ Version 0.09
 
 The "Log::WarnDie" module offers a logging alternative for standard
 Perl core functions.  This allows you to use the features of e.g.
-[Log::Dispatch](https://metacpan.org/pod/Log::Dispatch), [Log::Any](https://metacpan.org/pod/Log::Any) or [Log::Log4perl](https://metacpan.org/pod/Log::Log4perl) **without** having to make extensive
+[Log::Dispatch](https://metacpan.org/pod/Log%3A%3ADispatch), [Log::Any](https://metacpan.org/pod/Log%3A%3AAny) or [Log::Log4perl](https://metacpan.org/pod/Log%3A%3ALog4perl) **without** having to make extensive
 changes to your source code.
 
 When loaded, it installs a \_\_WARN\_\_ and \_\_DIE\_\_ handler and intercepts any
@@ -115,13 +116,13 @@ The following caveats may apply to your situation.
 
 ## Associated modules
 
-Although a module such as [Log::Dispatch](https://metacpan.org/pod/Log::Dispatch) is **not** listed as a prerequisite,
+Although a module such as [Log::Dispatch](https://metacpan.org/pod/Log%3A%3ADispatch) is **not** listed as a prerequisite,
 the real use of this module only comes into view when such a module **is**
 installed.  Please note that for testing this module, you will need the
-[Log::Dispatch::Buffer](https://metacpan.org/pod/Log::Dispatch::Buffer) module to also be available.
+[Log::Dispatch::Buffer](https://metacpan.org/pod/Log%3A%3ADispatch%3A%3ABuffer) module to also be available.
 
 This module has been tested with
-[Log::Dispatch](https://metacpan.org/pod/Log::Dispatch), [Log::Any](https://metacpan.org/pod/Log::Any) and [Log::Log4perl](https://metacpan.org/pod/Log::Log4perl).
+[Log::Dispatch](https://metacpan.org/pod/Log%3A%3ADispatch), [Log::Any](https://metacpan.org/pod/Log%3A%3AAny) and [Log::Log4perl](https://metacpan.org/pod/Log%3A%3ALog4perl).
 In principle any object which recognises `warning`, `error` and `critical` should work.
 
 ## eval
@@ -144,4 +145,4 @@ Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
 reserved.  This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
-Portions of versions 0.06 onwards, Copyright 2017 Nigel Horne
+Portions of versions 0.06 onwards, Copyright 2017-2024 Nigel Horne
