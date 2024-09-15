@@ -233,8 +233,7 @@ sub OPEN {
 
 BEGIN {
     $STDERR = IO::Handle->new();
-    $STDERR->fdopen( fileno( STDERR ),"w" )
-     or die "Could not open STDERR 2nd time: $!\n";
+    $STDERR->fdopen(fileno(STDERR), 'w') or die "Could not open STDERR 2nd time: $!\n";
     tie *STDERR,__PACKAGE__;
 
 #  Save current __WARN__ setting
@@ -309,9 +308,9 @@ BEGIN {
 	}
     };
 
-#  Make sure we won't be listed ourselves by Carp::
+	#  Make sure we won't be listed ourselves by Carp::
 
-    $Carp::Internal{__PACKAGE__} = 1;
+	$Carp::Internal{__PACKAGE__} = 1;
 } #BEGIN
 
 # Satisfy require

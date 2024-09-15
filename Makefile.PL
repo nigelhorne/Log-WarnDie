@@ -1,3 +1,5 @@
+#!/usr/bin/env perl
+
 require 5.006;
 use strict;
 use warnings;
@@ -79,14 +81,13 @@ WriteMakefile (
 
 sub are_online
 {
-	return 0 if($ENV{'NO_NETWORK_TESTING'} || $ENV{'TRAVIS_PERL_VERSION'}) || $ENV{'AUTOMATED_TESTING'} || (!-t STDIN);
+	return 0 if($ENV{'NO_NETWORK_TESTING'} || $ENV{'CIRCLECI'} || $ENV{'TRAVIS_PERL_VERSION'}) || $ENV{'AUTOMATED_TESTING'} || (!-t STDIN);
 
-	my $s = IO::Socket::INET->new(
+	if(my $s = IO::Socket::INET->new(
 		# PeerAddr => 'www.ripe.net:43',
 		PeerAddr => 'test.rebex.net:22',
 		Timeout => 5
-	);
-	if($s) {
+	)) {
 		print <<EOF;
 
 You appear to be directly connected to the Internet.  I have a regression test
@@ -108,8 +109,7 @@ EOF
 			return 1;	# The default is 'y'
 		}
 		return $rc;
-	} else {
-		print "On-line tests disabled because I couldn't detect an Internet connexion\n";
-		return 0;
 	}
+	print "On-line tests disabled because I couldn't detect an Internet connexion\n";
+	return 0;
 }
