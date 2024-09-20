@@ -26,6 +26,7 @@ if($ENV{'AUTHOR_TESTING'}) {
 
 my $test_requires = {
 	'Log::Dispatch::Null' => 0,
+	'Test::DescribeMe' => 0,
 	'Test::Most' => 0,
 	'Test::Needs' => 0,
 	'Test::TempDir::Tiny' => 0,
@@ -44,6 +45,15 @@ if($online_tests) {
 	unlink('t/online.enabled');
 }
 
+my $dist = {
+	COMPRESS => 'gzip -9f',
+	SUFFIX => 'gz'
+};
+
+if($^O eq 'darwin') {
+	$dist->{'TAR'} = 'gtar';
+}
+
 WriteMakefile (
 	NAME		=> "Log::WarnDie",
 	# AUTHOR		=> 'Elizabeth Mattijsen (liz@dijkmat.nl)',
@@ -58,7 +68,7 @@ WriteMakefile (
 		'Scalar::Util' => 1.08,
 	},
 	TEST_REQUIRES => $test_requires,
-	dist		=> { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+	dist => $dist,
 	clean		=> { FILES => 'Log::WarnDie-*' },
 	META_MERGE	=> {
 		'meta-spec' => { version => 2 },
