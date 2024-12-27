@@ -49,9 +49,7 @@ Version 0.11
     warn "This is a warning";       # now also dispatched
     die "Sorry it didn't work out"; # now also dispatched
 
-    no Log::WarnDie; # deactivate later
-
-    Log::WarnDie->dispatcher( undef ); # same
+    Log::WarnDie->dispatcher(undef); # deactivate
 
     Log::WarnDie->filter(\&filter);
     warn "This is a warning"; # no longer dispatched
@@ -59,7 +57,7 @@ Version 0.11
 
     # Filter out File::stat noise
     sub filter {
-	    return ($_[0] !~ /^S_IFFIFO is not a valid Fcntl macro/);
+	    return 0 if($_[0] != /^S_IFFIFO is not a valid Fcntl macro/);
     }
 
 =head1 DESCRIPTION
