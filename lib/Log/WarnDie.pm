@@ -62,7 +62,7 @@ Version 0.11
 
 =head1 DESCRIPTION
 
-The "Log::WarnDie" module offers a logging alternative for standard
+The C<Log::WarnDie> module offers a logging alternative for standard
 Perl core functions.  This allows you to use the features of e.g.
 L<Log::Dispatch>, L<Log::Any> or L<Log::Log4perl> B<without> having to make extensive
 changes to your source code.
@@ -426,21 +426,24 @@ L<Log::Dispatch::Buffer> module to also be available.
 
 This module has been tested with
 L<Log::Dispatch>, L<Log::Any> and L<Log::Log4perl>.
-In principle any object which recognises C<warning>, C<error> and C<critical> should work.
+In principle,
+any object which recognises C<warning>, C<error> and C<critical> should work.
 
 =head2 eval
 
 In the current implementation of Perl, a __DIE__ handler is B<also> called
 inside an eval.  Whereas a normal C<die> would just exit the eval, the __DIE__
 handler _will_ get called inside the eval.  Which may or may not be what you
-want.  To prevent the __DIE__ handler to be called inside eval's, add the
+want.
+To prevent the __DIE__ handler from being called inside eval's, add the
 following line to the eval block or string being evaluated:
 
     local $SIG{__DIE__} = undef;
 
 This disables the __DIE__ handler within the evalled block or string, and
 will automatically enable it again upon exit of the evalled block or string.
-Unfortunately there is no automatic way to do that for you.
+Unfortunately,
+there is no automatic way to do that for you.
 
 =head1 COPYRIGHT
 
