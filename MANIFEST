@@ -29,6 +29,7 @@ t/no404s.t
 t/noopentickets.t
 t/noplan.t
 t/pod-cm.t
+t/pod-snippets.t
 t/pod-spelling.t
 t/pod-synopsis.t
 t/pod.t
@@ -36,7 +37,6 @@ t/port.t
 t/prereq.t
 t/rt39186.t
 t/rt61923.t
-t/snippets.t
 t/strict.t
 t/unused.t
 t/used.t
