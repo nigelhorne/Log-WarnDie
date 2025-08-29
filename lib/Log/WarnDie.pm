@@ -125,26 +125,26 @@ sub TIEHANDLE { bless \"$_[0]",$_[0] } #TIEHANDLE
 #  IN: 1 blessed object returned by TIEHANDLE
 #      2..N whatever was needed to be printed
 
-sub PRINT {
+sub PRINT
+{
+	# Lose the object
+	# If there is a dispatcher
+	#  Put it in the log handler if not the same as last time
+	#  Reset the flag
+	# Make sure it appears on the original STDERR as well
 
-# Lose the object
-# If there is a dispatcher
-#  Put it in the log handler if not the same as last time
-#  Reset the flag
-# Make sure it appears on the original STDERR as well
-
-    shift;
-    if($FILTER) {
-	return if($FILTER->(@_) == 0);
-    }
-    if ($DISPATCHER) {
-        $DISPATCHER->error( @_ )
-         unless $LAST and @$LAST == @_ and join( '',@$LAST ) eq join( '',@_ );
-        undef $LAST;
-    }
-    if($STDERR) {
-	print $STDERR @_;
-    }
+	shift;
+	if($FILTER) {
+		return if($FILTER->(@_) == 0);
+	}
+	if ($DISPATCHER) {
+		# Prevent deep recursion
+		$DISPATCHER->error( @_ ) unless $LAST and @$LAST == @_ and join( '',@$LAST ) eq join( '',@_ );
+		# undef $LAST;	# Unsure why the flag should be removed
+	}
+	if($STDERR) {
+		print $STDERR @_;
+	}
 } #PRINT
 
 #---------------------------------------------------------------------------
@@ -403,9 +403,11 @@ sub unimport { import( undef ) } #unimport
 
 Elizabeth Mattijsen, <liz@dijkmat.nl>
 
-Maintained by Nigel Horne, C<< <njh at bandsman.co.uk> >>
+Maintained by Nigel Horne, C<< <njh at nigelhorne.com> >>
 
 =head1 BUGS
+
+This module is provided as-is without any warranty.
 
 Please report any bugs or feature requests to C<bug-log-warndie at rt.cpan.org>,
 or through the web interface at
