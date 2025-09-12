@@ -22,6 +22,10 @@ our $LAST;
 our $WARN;
 our $DIE;
 
+# Handle the situation when the logger you hand to Log::WarnDie is (directly or indirectly) writing to STDERR, which this module has tied.
+# That causes the tied PRINT/PRINTF/__WARN__ handler to call the dispatcher again which writes to STDERR and you end up with deep recursion
+our $IN_LOG;	# false normally, true while we're inside a logging call
+
 =head1 NAME
 
 Log::WarnDie - Log standard Perl warnings and errors on a log handler
@@ -133,14 +137,16 @@ sub PRINT
 	#  Reset the flag
 	# Make sure it appears on the original STDERR as well
 
+	return if $IN_LOG;	# prevents re-entry
 	shift;
 	if($FILTER) {
 		return if($FILTER->(@_) == 0);
 	}
 	if ($DISPATCHER) {
 		# Prevent deep recursion
+		local $IN_LOG = 1;
 		$DISPATCHER->error( @_ ) unless $LAST and @$LAST == @_ and join( '',@$LAST ) eq join( '',@_ );
-		# undef $LAST;	# Unsure why the flag should be removed
+		undef $LAST;
 	}
 	if($STDERR) {
 		print $STDERR @_;
@@ -163,21 +169,23 @@ sub PRINTF {
 #  Reset the flag
 # Make sure it appears on the original STDERR as well
 
-    shift;
-    my $format = shift;
-    my @args = @_;
-    return if(scalar(@args) == 0);
-    if($FILTER) {
-	return if($FILTER->(sprintf($format, @args)) == 0);
-    }
-    if ($DISPATCHER) {
-        $DISPATCHER->error(sprintf($format, @args))
-         unless $LAST and @$LAST == @args and join( '',@$LAST ) eq join( '',@args );
-        undef $LAST;
-    }
-    if($STDERR) {
-	printf $STDERR $format, @args;
-    }
+	return if $IN_LOG;	# prevents re-entry
+	shift;
+	my $format = shift;
+	my @args = @_;
+	return if(scalar(@args) == 0);
+	if($FILTER) {
+		return if($FILTER->(sprintf($format, @args)) == 0);
+	}
+	if ($DISPATCHER) {
+		local $IN_LOG = 1;
+		$DISPATCHER->error(sprintf($format, @args))
+		unless $LAST and @$LAST == @args and join( '',@$LAST ) eq join( '',@args );
+		undef $LAST;
+	}
+	if($STDERR) {
+		printf $STDERR $format, @args;
+	}
 } #PRINTF
 
 #---------------------------------------------------------------------------
