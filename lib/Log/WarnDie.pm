@@ -337,34 +337,34 @@ Class method to set and/or return the current dispatcher
 
 =cut
 
-sub dispatcher {
+sub dispatcher
+{
+	# Return the current dispatcher if no changes needed
+	# Set the new dispatcher
 
-# Return the current dispatcher if no changes needed
-# Set the new dispatcher
+	return $DISPATCHER if(scalar(@_) <= 1);
+	$DISPATCHER = $_[1];
 
-    return $DISPATCHER if(scalar(@_) <= 1);
-    $DISPATCHER = $_[1];
+	# If there is a dispatcher now
+	#  If the dispatcher is a Log::Dispatch er
+	#   Make sure all of standard Log::Dispatch stuff becomes invisible for Carp::
+	#   If there are outputs already
+	#    Make sure all of the output objects become invisible for Carp::
 
-# If there is a dispatcher now
-#  If the dispatcher is a Log::Dispatch er
-#   Make sure all of standard Log::Dispatch stuff becomes invisible for Carp::
-#   If there are outputs already
-#    Make sure all of the output objects become invisible for Carp::
+	if ($DISPATCHER) {
+		if($DISPATCHER->isa( 'Log::Dispatch')) {
+			$Carp::Internal{$_} = 1
+			foreach 'Log::Dispatch','Log::Dispatch::Output';
+			if(my $outputs = $DISPATCHER->{'outputs'}) {
+				$Carp::Internal{$_} = 1
+				foreach map {blessed $_} values %{$outputs};
+			}
+		}
+	}
 
-    if ($DISPATCHER) {
-        if ($DISPATCHER->isa( 'Log::Dispatch' )) {
-            $Carp::Internal{$_} = 1
-             foreach 'Log::Dispatch','Log::Dispatch::Output';
-            if (my $outputs = $DISPATCHER->{'outputs'}) {
-                $Carp::Internal{$_} = 1
-                 foreach map {blessed $_} values %{$outputs};
-            }
-        }
-    }
+	# Return the current dispatcher
 
-# Return the current dispatcher
-
-    $DISPATCHER;
+	return $DISPATCHER;
 } #dispatcher
 
 =head2 filter
@@ -431,7 +431,8 @@ The following caveats may apply to your situation.
 
 Although a module such as L<Log::Dispatch> is B<not> listed as a prerequisite,
 the real use of this module only comes into view when such a module B<is>
-installed.  Please note that for testing this module, you will need the
+installed.
+Please note that for testing this module, you will need the
 L<Log::Dispatch::Buffer> module to also be available.
 
 This module has been tested with
@@ -442,9 +443,10 @@ any object which recognises C<warning>, C<error> and C<critical> should work.
 =head2 eval
 
 In the current implementation of Perl, a __DIE__ handler is B<also> called
-inside an eval.  Whereas a normal C<die> would just exit the eval, the __DIE__
-handler _will_ get called inside the eval.  Which may or may not be what you
-want.
+inside an eval.
+Whereas a normal C<die> would just exit the eval, the __DIE__
+handler _will_ get called inside the eval.
+Which may or may not be what you want.
 To prevent the __DIE__ handler from being called inside eval's, add the
 following line to the eval block or string being evaluated:
 
@@ -458,7 +460,8 @@ there is no automatic way to do that for you.
 =head1 COPYRIGHT
 
 Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
-reserved.  This program is free software; you can redistribute it and/or
+reserved.
+This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
 Portions of versions 0.06 onwards, Copyright 2017-2024 Nigel Horne
