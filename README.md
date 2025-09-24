@@ -144,6 +144,10 @@ will automatically enable it again upon exit of the evalled block or string.
 Unfortunately,
 there is no automatic way to do that for you.
 
+# SEE ALSO
+
+- Test coverage report: [https://nigelhorne.github.io/Log-WarnDie/coverage/](https://nigelhorne.github.io/Log-WarnDie/coverage/)
+
 # COPYRIGHT
 
 Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
