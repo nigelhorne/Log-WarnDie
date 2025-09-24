@@ -69,7 +69,7 @@ WriteMakefile (
 	},
 	TEST_REQUIRES => $test_requires,
 	dist => $dist,
-	clean		=> { FILES => 'Log::WarnDie-*' },
+	clean		=> { FILES => 'Log-WarnDie-*' },
 	META_MERGE	=> {
 		'meta-spec' => { version => 2 },
 		resources => {
