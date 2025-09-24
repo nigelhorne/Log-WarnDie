@@ -457,6 +457,14 @@ will automatically enable it again upon exit of the evalled block or string.
 Unfortunately,
 there is no automatic way to do that for you.
 
+=head1 SEE ALSO
+
+=over 4
+
+=item * Test coverage report: L<https://nigelhorne.github.io/Log-WarnDie/coverage/>
+
+=back
+
 =head1 COPYRIGHT
 
 Copyright (c) 2004, 2007 Elizabeth Mattijsen <liz@dijkmat.nl>. All rights
