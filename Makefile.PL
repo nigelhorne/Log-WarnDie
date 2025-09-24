@@ -33,11 +33,12 @@ WriteMakefile (
 	}, TEST_REQUIRES => {
 		'autodie' => 0,
 		'Log::Dispatch::Null' => 0,
+		'IPC::System::Simple' => 0,
+		'Readonly' => 0,
 		'Test::DescribeMe' => 0,
 		'Test::Most' => 0,
 		'Test::Needs' => 0,
 		'Test::TempDir::Tiny' => 0,
-		'IPC::System::Simple' => 0,
 		'Test::File::Contents' => 0,
 		'Test::RequiresInternet' => 0,
 		'File::Slurp' => 0,
