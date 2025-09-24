@@ -32,7 +32,7 @@ Log::WarnDie - Log standard Perl warnings and errors on a log handler
 
 =head1 VERSION
 
-Version 0.11
+Version 0.12
 
 =head1 SYNOPSIS
 
@@ -100,7 +100,7 @@ level message.
 
 =cut
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 =head1 SUBROUTINES/METHODS
 
