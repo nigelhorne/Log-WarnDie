@@ -3,6 +3,7 @@ Revision history for Log-WarnDie
 0.13
 	Fix make distclean
 	Added the test dashboard
+	Use Test::Needs and Test::RequiresInternet to simplify test configuration
 
 0.12	Wed Sep 24 11:50:20 EDT 2025
 	Use Test::DescribeMe to simplify tests

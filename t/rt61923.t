@@ -2,38 +2,28 @@
 
 use strict;
 use warnings;
-use Test::Most;
+
+use Test::Most tests => 7;
+use Test::Needs 'Net::SFTP::Foreign', 'Log::Disbatch::Buffer';
+use Test::RequiresInternet ('test.rebex.net' => 'ssh');
 
 # See https://rt.cpan.org/Public/Bug/Display.html?id=61932
 
-if(!(-e 't/online.enabled')) {
-	plan skip_all => 'On-line tests disabled';
-} else {
-	eval 'use Log::Dispatch::Buffer';
+BEGIN { use_ok('Log::WarnDie') }
 
-	if($@) {
-		plan skip_all => "Log::Dispatch::Buffer required for checking RT39186";
-	} else {
-		plan tests => 7;
+my $dispatcher = new_ok('Log::Dispatch');
 
-		use_ok('Log::WarnDie');
-		use_ok('Net::SFTP::Foreign');
+can_ok('Log::WarnDie', qw(dispatcher import unimport));
 
-		my $dispatcher = new_ok('Log::Dispatch');
+my $channel = Log::Dispatch::Buffer->new(qw(name default min_level debug));
+isa_ok( $channel,'Log::Dispatch::Buffer' );
 
-		can_ok('Log::WarnDie', qw(dispatcher import unimport));
+$dispatcher->add($channel);
+is($dispatcher->output('default') ,$channel, 'Check if channel activated');
 
-		my $channel = Log::Dispatch::Buffer->new( qw(name default min_level debug));
-		isa_ok( $channel,'Log::Dispatch::Buffer' );
+Log::WarnDie->dispatcher($dispatcher);
 
-		$dispatcher->add( $channel );
-		is( $dispatcher->output( 'default' ),$channel,'Check if channel activated');
+# http://www.sftp.net/public-online-sftp-servers
+my $sftp = Net::SFTP::Foreign->new('demo@test.rebex.net', password => 'password');
 
-		Log::WarnDie->dispatcher( $dispatcher );
-
-		# http://www.sftp.net/public-online-sftp-servers
-		my $sftp = Net::SFTP::Foreign->new('demo@test.rebex.net', password => 'password');
-
-		ok(defined($sftp->ls('.')));
-	}
-}
+ok(defined($sftp->ls('.')));
