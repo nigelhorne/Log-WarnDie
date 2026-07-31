@@ -1,0 +1,571 @@
+{
+   "runs" : [
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501216.0353,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501216.03505,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501216.20127,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501216.20106,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501216.36366,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501216.36339,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501216.52352,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501216.52324,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501216.68307,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501216.68284,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501216.84052,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501216.84031,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501217.00054,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501217.00033,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501217.16113,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501217.16093,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501217.33275,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501217.32467,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501226.33065,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501217.52362,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501217.66386,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "-e",
+         "start" : 1785501217.66377,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501217.9083,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/00-load.t",
+         "start" : 1785501217.90722,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501218.27556,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/30-basics.t",
+         "start" : 1785501218.27304,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501218.57781,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/boiler.t",
+         "start" : 1785501218.56126,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501218.81624,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/changes.t",
+         "start" : 1785501218.81604,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501219.04328,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/comment-spelling.t",
+         "start" : 1785501219.04308,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501219.29307,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/coverage.t",
+         "start" : 1785501219.29237,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501219.5259,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/critic.t",
+         "start" : 1785501219.52567,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501219.75552,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/cv.t",
+         "start" : 1785501219.75529,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501219.98362,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/dist.t",
+         "start" : 1785501219.98339,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501220.20847,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/eof.t",
+         "start" : 1785501220.20829,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501220.4323,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/eol.t",
+         "start" : 1785501220.43211,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501220.68541,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/gv.t",
+         "start" : 1785501220.68465,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501220.92178,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/kwalitee.t",
+         "start" : 1785501220.92158,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501221.15923,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/log4perl.t",
+         "start" : 1785501221.15848,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501221.44852,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/logany.t",
+         "start" : 1785501221.44756,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501221.70017,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/logdispatch.t",
+         "start" : 1785501221.6953,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501221.97034,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/manifest.t",
+         "start" : 1785501221.97011,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501222.19803,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/metrics.t",
+         "start" : 1785501222.1978,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501222.42456,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/no404s.t",
+         "start" : 1785501222.42436,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501222.67657,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/noopentickets.t",
+         "start" : 1785501222.67511,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501222.93734,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/noplan.t",
+         "start" : 1785501222.93671,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501223.19541,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/pod-cm.t",
+         "start" : 1785501223.19467,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501223.43005,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/pod-snippets.t",
+         "start" : 1785501223.4298,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501223.65654,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/pod-spelling.t",
+         "start" : 1785501223.65634,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501223.9087,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/pod-synopsis.t",
+         "start" : 1785501223.90812,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501224.15467,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/pod.t",
+         "start" : 1785501224.15395,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501224.41915,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/port.t",
+         "start" : 1785501224.41829,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501224.68238,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/prereq.t",
+         "start" : 1785501224.68154,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501225.03879,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/rt39186.t",
+         "start" : 1785501225.03718,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501225.35346,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/rt61923.t",
+         "start" : 1785501225.35304,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501225.58612,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/strict.t",
+         "start" : 1785501225.58592,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501225.81117,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/unused.t",
+         "start" : 1785501225.81098,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501226.05895,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/used.t",
+         "start" : 1785501226.05835,
+         "version" : "0.12"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Log standard Perl warnings and errors on a log handler",
+         "dir" : "/home/runner/work/Log-WarnDie/Log-WarnDie",
+         "finish" : 1785501226.29339,
+         "name" : "Log-WarnDie",
+         "perl" : "5.40.4",
+         "run" : "t/vars.t",
+         "start" : 1785501226.29319,
+         "version" : "0.12"
+      }
+   ],
+   "summary" : {
+      "Total" : {
+         "branch" : {
+            "covered" : 33,
+            "error" : 35,
+            "percentage" : 48.5294117647059,
+            "total" : 68,
+            "uncoverable" : 0
+         },
+         "condition" : {
+            "covered" : 6,
+            "error" : 15,
+            "percentage" : 28.5714285714286,
+            "total" : 21,
+            "uncoverable" : 0
+         },
+         "statement" : {
+            "covered" : 65,
+            "error" : 27,
+            "percentage" : 70.6521739130435,
+            "total" : 92
+         },
+         "subroutine" : {
+            "covered" : 10,
+            "error" : 3,
+            "percentage" : 76.9230769230769,
+            "total" : 13
+         },
+         "total" : {
+            "covered" : 114,
+            "error" : 80,
+            "percentage" : 58.7628865979381,
+            "total" : 194,
+            "uncoverable" : 0
+         }
+      },
+      "blib/lib/Log/WarnDie.pm" : {
+         "branch" : {
+            "covered" : 33,
+            "error" : 35,
+            "percentage" : 48.5294117647059,
+            "total" : 68,
+            "uncoverable" : 0
+         },
+         "condition" : {
+            "covered" : 6,
+            "error" : 15,
+            "percentage" : 28.5714285714286,
+            "total" : 21,
+            "uncoverable" : 0
+         },
+         "statement" : {
+            "covered" : 65,
+            "error" : 27,
+            "percentage" : 70.6521739130435,
+            "total" : 92
+         },
+         "subroutine" : {
+            "covered" : 10,
+            "error" : 3,
+            "percentage" : 76.9230769230769,
+            "total" : 13
+         },
+         "total" : {
+            "covered" : 114,
+            "error" : 80,
+            "percentage" : 58.7628865979381,
+            "total" : 194,
+            "uncoverable" : 0
+         }
+      }
+   }
+}
